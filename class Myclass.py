@@ -25,7 +25,7 @@ p1.surname = input('Enter surname:')
 p1.Country = input('Enter country of birth:')
 p1.date= input('Enter date of birth:')
 p1.birth = DT.datetime.strptime(p1.date, '%d/%m/%Y')
-timedelta=p1.birth-today
+timedelta=today-p1.birth
 p1.old = timedelta
 p1.print_info(1)
 
@@ -35,12 +35,12 @@ p2.surname = input('Enter surname:')
 p2.Country = input('Enter country of birth:')
 p2.date= input('Enter date of birth:')
 p2.birth = DT.datetime.strptime(p2.date, '%d/%m/%Y')
-timedelta=p2.birth-today
-p2.old = timedelta
+timedelta1=today - p2.birth
+p2.old = timedelta1
 p2.print_info(1)
 records = (
-    (p1.name , p1.surname , p1.Country , p1.date , p1.birth),
-    (p2.name , p2.surname , p2.Country , p2.date , p2.birth)
+    (p1.name , p1.surname , p1.Country , p1.birth , p1.old),
+    (p2.name , p2.surname , p2.Country , p2.birth , p2.old)
 )
 document.add_heading('Таблица, в которую записываются данные, введенные в консоли',0)
 table = document.add_table(rows = 1, cols=5)
@@ -61,7 +61,6 @@ for qw, e, r, t, y in records:
 document.save(r"C:\Users\Hot\Desktop\Code\document.docx")
 
 #создать документ, куда будут экспортироваться личные данные
-#self.old неправильно экспортирует данные в файл. Вместо возраста показывает дату рождения,в консоли работает правильно
 
 
 
